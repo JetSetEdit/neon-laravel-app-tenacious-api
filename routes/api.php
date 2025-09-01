@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HealthController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Health Check Endpoint
 Route::get('/health', [HealthController::class, 'index']);
+
+// Authentication Endpoint
+Route::get('/auth/validate', [AuthController::class, 'validate']);
 
