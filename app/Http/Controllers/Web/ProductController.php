@@ -34,15 +34,22 @@ class ProductController extends Controller
         $products = $query->with('category')->paginate(12);
         $categories = Category::all();
         
-        return view('products.index', compact('products', 'categories', 'category', 'search'));
+        // Get partner info from middleware
+        $partner_name = $request->input('partner_name');
+        
+        return view('products.index', compact('products', 'categories', 'category', 'search', 'partner_name'));
     }
 
     /**
      * Display the specified product
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $product = Product::with('category')->findOrFail($id);
-        return view('products.show', compact('product'));
+        
+        // Get partner info from middleware
+        $partner_name = $request->input('partner_name');
+        
+        return view('products.show', compact('product', 'partner_name'));
     }
 }

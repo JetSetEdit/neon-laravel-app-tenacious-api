@@ -130,6 +130,32 @@
             font-size: 14px;
         }
         
+        .user-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .welcome-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
         .view-toggle {
             margin-bottom: 20px;
             display: flex;
@@ -226,6 +252,10 @@
         <div class="header">
             <h1>🎯 {{ $product->name }}</h1>
             <p>Product Details</p>
+            <div class="user-info">
+                <span class="welcome-text">Welcome, {{ $partner_name }}</span>
+                <a href="{{ route('auth.logout') }}" class="logout-btn">Logout</a>
+            </div>
         </div>
         
         <div class="view-toggle">

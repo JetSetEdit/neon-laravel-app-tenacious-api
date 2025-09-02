@@ -43,6 +43,32 @@
             opacity: 0.9;
         }
         
+        .user-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .welcome-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
         .search-section {
             background: white;
             padding: 30px;
@@ -302,6 +328,10 @@
         <div class="header">
             <h1>🎯 Tape Products</h1>
             <p>Professional adhesive solutions for every application</p>
+            <div class="user-info">
+                <span class="welcome-text">Welcome, {{ $partner_name }}</span>
+                <a href="{{ route('auth.logout') }}" class="logout-btn">Logout</a>
+            </div>
         </div>
         
         <div class="search-section">
