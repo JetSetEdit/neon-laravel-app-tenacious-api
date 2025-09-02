@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TestTokenController;
+use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,9 @@ Route::get('/auth/validate', [AuthController::class, 'validate']);
 
 // Test New Token System
 Route::get('/test-token', [TestTokenController::class, 'test']);
+
+// Product Endpoints (All require API key)
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/search', [ProductController::class, 'search']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
 
