@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TestTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,7 @@ Route::get('/health', [HealthController::class, 'index']);
 
 // Authentication Endpoint
 Route::get('/auth/validate', [AuthController::class, 'validate']);
+
+// Test New Token System
+Route::get('/test-token', [TestTokenController::class, 'test']);
 
